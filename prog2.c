@@ -1,45 +1,42 @@
 #include<stdio.h>
-int plndrm(char *ptr);
-int stlen(char *tr);
+int plndrm(char *);
+int stlen(char *);
 
 int i;
 int main()
 {
     char str[50];
     printf("enter the string : ");
-    scanf("%s",str);
-    int p=plndrm(str);
-    if(p==1)
-    {
-        printf("The String is pelendrome !!\n");
+    scanf("%[^\n]s",str);
+    int l =plndrm(str);
+
+    if(l==1){
+        printf("its a palendrome");
     }
     else
-    {
-        printf("The String is not pelendrome !!\n");
-    }
+    printf("no");
 }
-int j=0;
+
 int plndrm(char *ptr)
 {
     int k=stlen(ptr);
-    printf("%d",k);
-    for(int j=0;j<k;j++)
-    {
-        printf("hi");
-        if(*(ptr+j)!=*(ptr+k-j))
-        {
-            return 1;
-        } 
-        else
-        {
-            j++;
-        }  
-printf("%d",j);
+   
+    char *tempstr = ptr;
+    char *end= ptr+k-1;
+
+    
+    for(i=0;i<k;i++){
+
+        if(*(tempstr+i)!= *(end-i)){
+
+            return 0;
+        }
+
     }
-    printf("%d",j);
+
+    return 1;
+    
 }
-
-
 int stlen(char *tr)
 {
     while(*(tr+i)!='\0')
